@@ -1,0 +1,34 @@
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Dependencies
+**/node_modules/
+**/vendor/
+
+# Build files
+**/dist/
+**/build/
+
+# Backend runtime uploads - private user data
+/Praashad_real-state_erp_backend/public/floors/
+/Praashad_real-state_erp_backend/public/leads/
+/Praashad_real-state_erp_backend/public/ownerships/
+/Praashad_real-state_erp_backend/public/payment_types/
+/Praashad_real-state_erp_backend/public/procurements/
+/Praashad_real-state_erp_backend/public/projects/
+/Praashad_real-state_erp_backend/public/users/
+
+# Laravel runtime files
+/Praashad_real-state_erp_backend/storage/logs/*
+/Praashad_real-state_erp_backend/storage/framework/cache/*
+/Praashad_real-state_erp_backend/storage/framework/sessions/*
+/Praashad_real-state_erp_backend/storage/framework/views/*
+/Praashad_real-state_erp_backend/bootstrap/cache/*
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
