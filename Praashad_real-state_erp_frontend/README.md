@@ -1,4 +1,4 @@
-# Praashad Real Estate ERP — Frontend
+# Praashad Real Estate ERP - Frontend
 
 The frontend application for Praashad Real Estate ERP. It is built with React and Vite and communicates with the Laravel backend through HTTP API requests.
 
