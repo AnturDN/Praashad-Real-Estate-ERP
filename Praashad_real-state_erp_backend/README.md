@@ -1,66 +1,196 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Praashad Real Estate ERP — Backend
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+The backend API for Praashad Real Estate ERP. It is built with Laravel 10 and PHP and uses MySQL for data storage.
 
-## About Laravel
+## Technology Stack
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- PHP 8.1+
+- Laravel 10
+- MySQL
+- Laravel Sanctum
+- Cloudinary Laravel integration
+- Composer
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Main Backend Areas
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+The API contains controllers and models for:
 
-## Learning Laravel
+- User and role management
+- Ownership records
+- Leads and customers
+- Employees, payroll, and payroll summaries
+- Projects, floors, blocks, and units
+- Procurement, sales, and installments
+- Expense categories and expenses
+- Payment types and incentives
+- Transactions and additional charges
+- Rental projects, blocks, floors, units, leads, ownerships, tenants, and installments
+- Project hierarchy queries
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Requirements
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- PHP 8.1 or later
+- Composer
+- MySQL
+- PHP extensions required by Laravel 10 and the installed Composer packages
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Installation
 
-## Laravel Sponsors
+From the repository root:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```bash
+cd Praashad_real-state_erp_backend
+composer install
+```
 
-### Premium Partners
+Create the environment file:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```bash
+cp .env.example .env
+```
 
-## Contributing
+Generate the application key:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+php artisan key:generate
+```
 
-## Code of Conduct
+## Database Configuration
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Create a MySQL database. The supplied `.env.example` uses `Prashad_ERP_db` as the database name.
 
-## Security Vulnerabilities
+Update the database values in `.env` to match your local MySQL configuration:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=Prashad_ERP_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Run migrations:
+
+```bash
+php artisan migrate
+```
+
+## Start the API Server
+
+```bash
+php artisan serve
+```
+
+By default, the Laravel development server runs at:
+
+```text
+http://127.0.0.1:8000
+```
+
+The API base URL is:
+
+```text
+http://127.0.0.1:8000/api
+```
+
+## API Routes
+
+The API routes are defined in `routes/api.php`. The resource groups include:
+
+| Resource group | Base endpoint |
+|---|---|
+| Users | `/api/users` |
+| Roles | `/api/roles` |
+| Ownerships | `/api/ownerships` |
+| Expense categories | `/api/expense-categories` |
+| Expenses | `/api/expenses` |
+| Leads | `/api/leads` |
+| Customers | `/api/customers` |
+| Employees | `/api/employees` |
+| Payroll | `/api/payrolls` |
+| Payroll summaries | `/api/payroll-summaries` |
+| Projects | `/api/projects` |
+| Floors | `/api/floors` |
+| Blocks | `/api/blocks` |
+| Units | `/api/units` |
+| Procurements | `/api/procurements` |
+| Incentives | `/api/incentives` |
+| Sales | `/api/sales` |
+| Installments | `/api/installments` |
+| Transactions | `/api/transactions` |
+| Additional charges | `/api/additional-charges` |
+| Rental projects | `/api/rental-projects` |
+| Rental blocks | `/api/rental-blocks` |
+| Rental floors | `/api/rental-floors` |
+| Rental units | `/api/rental-units` |
+| Rental leads | `/api/rental-leads` |
+| Rental ownerships | `/api/rental-ownerships` |
+| Tenants | `/api/tenants` |
+| Rental installments | `/api/rental-installments` |
+
+Most resource groups define list, search, create, show, update, and delete routes. Check `routes/api.php` for the exact route methods and controller actions.
+
+### Project Hierarchy
+
+| Method | Endpoint | Controller action |
+|---|---|---|
+| `GET` | `/api/hierarchy/project/{id}` | `projectFloors` |
+| `GET` | `/api/hierarchy/floor/{id}` | `floorUnits` |
+| `GET` | `/api/hierarchy/block/{id}` | `blockUnits` |
+| `GET` | `/api/hierarchy/project-hierarchy/{id}` | `projectHierarchy` |
+
+## Frontend Connection
+
+The React frontend uses the API base URL configured by its `VITE_API_URL` environment variable.
+
+For local development:
+
+```env
+VITE_API_URL=http://127.0.0.1:8000/api
+```
+
+See the [frontend README](../Praashad_real-state_erp_frontend/README.md) for frontend setup.
+
+## Optional / Service Configuration
+
+The project includes the Cloudinary Laravel package and a Cloudinary configuration file. Set the credentials required by the application's Cloudinary configuration if the related functionality is enabled.
+
+Do not publish your `.env` file or expose database passwords, application keys, or third-party credentials.
+
+## Useful Artisan Commands
+
+| Command | Purpose |
+|---|---|
+| `php artisan serve` | Start the local Laravel server |
+| `php artisan migrate` | Run database migrations |
+| `php artisan migrate:status` | Check migration status |
+| `php artisan route:list --path=api` | List API routes |
+| `php artisan config:clear` | Clear cached configuration |
+| `php artisan cache:clear` | Clear application cache |
+
+## Project Structure
+
+```text
+Praashad_real-state_erp_backend/
+├── app/
+│   ├── Http/Controllers/Api/
+│   ├── Models/
+│   └── Console/
+├── bootstrap/
+├── config/
+├── database/
+│   ├── migrations/
+│   ├── factories/
+│   └── seeders/
+├── public/
+├── routes/
+│   └── api.php
+├── .env.example
+├── artisan
+└── composer.json
+```
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+No project-specific license is documented here. Refer to the repository root for project licensing information.
