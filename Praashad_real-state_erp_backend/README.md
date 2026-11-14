@@ -1,4 +1,4 @@
-# Praashad Real Estate ERP — Backend
+# Praashad Real Estate ERP - Backend
 
 The backend API for Praashad Real Estate ERP. It is built with Laravel 10 and PHP and uses MySQL for data storage.
 
