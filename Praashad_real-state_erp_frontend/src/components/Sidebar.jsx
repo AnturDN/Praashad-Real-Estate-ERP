@@ -55,7 +55,6 @@ const MenuItem = ({ item, isSidebarExpanded, isActive, onClick }) => {
   };
 
   const IconComponent = iconComponents[item.icon] || PieChart;
-
   return (
     <div className="mb-1 relative">
       {item.children ? (
