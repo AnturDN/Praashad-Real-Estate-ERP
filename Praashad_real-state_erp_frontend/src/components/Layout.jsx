@@ -9,7 +9,6 @@ const Layout = () => {
   const toggleSidebar = () => {
     setIsSidebarExpanded(!isSidebarExpanded);
   };
-
   return (
 
     <div className="flex h-screen bg-gray-50 overflow-hidden">
