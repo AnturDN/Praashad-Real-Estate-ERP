@@ -26,6 +26,7 @@ const PaymentType = () => {
     status: true,
     user_id: '',
   });
+  
   const [formErrors, setFormErrors] = useState({});
   const [isEditing, setIsEditing] = useState(false);
   const [showForm, setShowForm] = useState(false);
