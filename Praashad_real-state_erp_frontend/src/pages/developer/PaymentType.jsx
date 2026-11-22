@@ -91,7 +91,7 @@ const PaymentType = () => {
       setSearchLoading(false);
     }
   };
-
+  
   const fetchAllUsers = async () => {
     if (allUsers.length > 0) return;
     setLoading(true);
