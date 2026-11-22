@@ -26,7 +26,7 @@ const Dashboard = () => {
       // Determine if it's daytime (6 AM to 6 PM)
       setIsDaytime(hours >= 6 && hours < 18);
     };
-
+    
     updateClock();
     const intervalId = setInterval(updateClock, 1000);
 
